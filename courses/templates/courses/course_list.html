@@ -10,9 +10,23 @@
     <div class="card">
         <header><a href="{% url 'courses:detail' pk=course.pk %}">{{ course.title }}</a></header>
         <div class="card-copy">
-            {{ course.description }}
+            {% if course.description|wordcount <= 5 %}
+                {{ course.description }}
+            {% else %}
+                {{ course.description|truncatewords:5 }}
+            {% endif %}
+            <p>
+                <a href="{% url 'courses:detail' pk=course.pk %}">Read more</a>
+            </p>
+
+            <div>
+                <p>Created On: {{ course.created_at|date:"F j, Y" }}</p>
+            </div>
         </div>
     </div>
     {% endfor %}
+    <div>
+        <p>Have questions. Contact us at {{ email|urlize }}</p>
+    </div>
 </div>
 {% endblock %}

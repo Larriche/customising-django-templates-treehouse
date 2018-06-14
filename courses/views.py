@@ -5,7 +5,8 @@ from .models import Course, Step
 
 def course_list(request):
     courses = Course.objects.all()
-    return render(request, 'courses/course_list.html', {'courses': courses})
+    email = 'questions@learningsite.com'
+    return render(request, 'courses/course_list.html', {'courses': courses, 'email': email})
 
 
 def course_detail(request, pk):
