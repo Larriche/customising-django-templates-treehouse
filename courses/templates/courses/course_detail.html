@@ -1,4 +1,5 @@
 {% extends "layout.html" %}
+{% load humanize %}
 
 {% block title %}{{ course.title }}{% endblock %}
 
@@ -7,7 +8,7 @@
     <h2>{{ course.title }}</h2>
     {{ course.description }}
 
-    <p>These are {{ course.step_set.count }} step{{ course.step_set.count | pluralize}} in this course: {{ course.step_set.all|join:", " }}</p>
+    <p>There are {{ course.step_set.count|apnumber }} step{{ course.step_set.count | pluralize}} in this course: {{ course.step_set.all|join:", " }}</p>
     <section>
         {% for step in course.step_set.all %}
             <h3>
