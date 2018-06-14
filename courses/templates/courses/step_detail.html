@@ -6,6 +6,8 @@
 <article>
     <h2><a href="{% url 'courses:detail' pk=step.course.pk %}">{{ step.course.title }}</a></h2>
     <h3>{{ step.title }}</h3>
-    {{ step.content|linebreaks }}
+    {% with con=step.content %}
+        {{ con|linebreaks }} Content: {{ con|wordcount }} words.
+    {% endwith %}
 </article>
 {% endblock %}
