@@ -14,7 +14,7 @@
                 <a href="{% url 'hello' %}">Home</a>
                 <a href="{% url 'courses:list' %}">Courses</a>
             </nav>
-            <p>Don't miss our latest course, {% newest_courses %}!</p>
+            <p>Don't miss our latest course, {% newest_course %}!</p>
             {% block content %}{% endblock %}
         </div>
     </body>
