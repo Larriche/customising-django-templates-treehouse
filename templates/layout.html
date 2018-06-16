@@ -1,4 +1,5 @@
 {% load static from staticfiles %}
+{% load course_extras %}
 
 <!doctype html>
 <html>
@@ -13,6 +14,7 @@
                 <a href="{% url 'hello' %}">Home</a>
                 <a href="{% url 'courses:list' %}">Courses</a>
             </nav>
+            <p>Don't miss our latest course, {% newest_courses %}!</p>
             {% block content %}{% endblock %}
         </div>
     </body>
